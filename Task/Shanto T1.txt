@@ -1,0 +1,309 @@
+Tue Mar 21 16:41:34 2023   Core&Dis   Switch>enable
+Tue Mar 21 16:41:47 2023   Core&Dis   Switch#configure terminal
+Tue Mar 21 16:42:36 2023   Core&Dis   Switch(config)#interface fa0/1
+Tue Mar 21 16:42:48 2023   Core&Dis   Switch(config-if)#switchport mode trunk
+Tue Mar 21 16:43:15 2023   Core&Dis   Switch(config-if)#interface fa0/2
+Tue Mar 21 16:43:22 2023   Core&Dis   Switch(config-if)#switchport mode trunk
+Tue Mar 21 16:46:56 2023   ALSw1   Switch>enable
+Tue Mar 21 16:47:01 2023   ALSw1   Switch#configure terminal
+Tue Mar 21 16:47:15 2023   ALSw1   Switch(config)#interface fa0/1
+Tue Mar 21 16:47:22 2023   ALSw1   Switch(config-if)#switchport mode trunk
+Tue Mar 21 16:47:32 2023   ALSw1   Switch(config-if)#interface fa0/2
+Tue Mar 21 16:47:38 2023   ALSw1   Switch(config-if)#switchport mode trunk
+Tue Mar 21 16:47:48 2023   ALSw2   Switch>en
+Tue Mar 21 16:47:50 2023   ALSw2   Switch#conf t
+Tue Mar 21 16:47:55 2023   ALSw2   Switch(config)#interface fa0/1
+Tue Mar 21 16:48:01 2023   ALSw2   Switch(config-if)#switchport mode trunk
+Tue Mar 21 16:48:06 2023   ALSw2   Switch(config-if)#interface fa0/2
+Tue Mar 21 16:48:13 2023   ALSw2   Switch(config-if)#switchport mode trunk
+Tue Mar 21 16:53:24 2023   Core&Dis   Switch(config-if)#do show interfaces trunk
+Tue Mar 21 16:54:33 2023   ALSw1   Switch(config-if)#do show int tr
+Tue Mar 21 16:57:02 2023   Core&Dis   Switch(config-if)#end
+Tue Mar 21 16:57:30 2023   Core&Dis   Switch#configure terminal
+Tue Mar 21 16:58:07 2023   ALSw1   Switch(config-if)#interface fa0/3
+Tue Mar 21 16:58:13 2023   ALSw1   Switch(config-if)#switchport mode access
+Tue Mar 21 16:58:24 2023   ALSw1   Switch(config-if)#interface fa0/4
+Tue Mar 21 16:58:29 2023   ALSw1   Switch(config-if)#switchport mode access
+Tue Mar 21 16:58:40 2023   ALSw2   Switch>enable
+Tue Mar 21 16:58:45 2023   ALSw2   Switch#configure terminal
+Tue Mar 21 16:58:56 2023   ALSw2   Switch(config)#interface fa0/3
+Tue Mar 21 16:59:03 2023   ALSw2   Switch(config-if)#switchport mode access
+Tue Mar 21 16:59:08 2023   ALSw2   Switch(config-if)#interface fa0/4
+Tue Mar 21 16:59:13 2023   ALSw2   Switch(config-if)#switchport mode access
+Tue Mar 21 17:02:42 2023   Core&Dis   Switch(config)#exit
+Tue Mar 21 17:02:45 2023   Core&Dis   Switch#exit
+Tue Mar 21 17:02:49 2023   Core&Dis   Switch>enable
+Tue Mar 21 17:02:54 2023   Core&Dis   Switch#configure terminal
+Tue Mar 21 17:03:05 2023   Core&Dis   Switch(config)#vtp mode server
+Tue Mar 21 17:03:19 2023   Core&Dis   Switch(config)#vtp domain bd.com
+Tue Mar 21 17:03:27 2023   Core&Dis   Switch(config)#vtp password cisco
+Tue Mar 21 17:05:58 2023   ALSw1   Switch(config-if)#exit
+Tue Mar 21 17:06:01 2023   ALSw1   Switch(config)#exit
+Tue Mar 21 17:06:02 2023   ALSw1   Switch#exit
+Tue Mar 21 17:06:05 2023   ALSw1   Switch>en
+Tue Mar 21 17:06:10 2023   ALSw1   Switch#configure terminal
+Tue Mar 21 17:06:21 2023   ALSw1   Switch(config)#vtp mode client
+Tue Mar 21 17:06:31 2023   ALSw1   Switch(config)#vtp domain bd.com
+Tue Mar 21 17:06:36 2023   ALSw1   Switch(config)#vtp password cisco
+Tue Mar 21 17:06:44 2023   ALSw2   Switch(config-if)#exit
+Tue Mar 21 17:06:49 2023   ALSw2   Switch(config)#vtp mode client
+Tue Mar 21 17:06:55 2023   ALSw2   Switch(config)#vtp domain bd.com
+Tue Mar 21 17:06:59 2023   ALSw2   Switch(config)#vtp password cisco
+Tue Mar 21 17:10:40 2023   Core&Dis   Switch(config)#vlan 5
+Tue Mar 21 17:10:44 2023   Core&Dis   Switch(config-vlan)#name CSE
+Tue Mar 21 17:10:48 2023   Core&Dis   Switch(config-vlan)#vlan 10
+Tue Mar 21 17:10:51 2023   Core&Dis   Switch(config-vlan)#name EEE
+Tue Mar 21 17:11:06 2023   ALSw1   Switch(config)#do show vlan br
+Tue Mar 21 17:11:41 2023   Core&Dis   Switch(config-vlan)#do show vlan br
+Tue Mar 21 17:14:43 2023   ALSw1   Switch(config)#interface fa0/3
+Tue Mar 21 17:14:51 2023   ALSw1   Switch(config-if)#switchport access vlan 5
+Tue Mar 21 17:15:01 2023   ALSw1   Switch(config-if)#interface fa0/4
+Tue Mar 21 17:15:09 2023   ALSw1   Switch(config-if)#switchport access vlan 10
+Tue Mar 21 21:08:49 2023   Switch0   Switch>enable
+Tue Mar 21 21:09:03 2023   Switch0   Switch#configure terminal
+Tue Mar 21 21:09:40 2023   Switch0   Switch(config)#interface fa0/1
+Tue Mar 21 21:09:54 2023   Switch0   Switch(config-if)#switchport mode trunk
+Tue Mar 21 21:10:10 2023   Switch0   Switch(config-if)#interface fa0/2
+Tue Mar 21 21:10:20 2023   Switch0   Switch(config-if)#switchport mode trunk
+Tue Mar 21 21:10:40 2023   Switch0   Switch(config-if)#do show interfaces trunk
+Tue Mar 21 21:11:04 2023   Switch3   Switch>enable
+Tue Mar 21 21:11:20 2023   Switch3   Switch#configure terminal
+Tue Mar 21 21:11:45 2023   Switch3   Switch(config)#interface fa0/1
+Tue Mar 21 21:11:56 2023   Switch3   Switch(config-if)#switchport mode trunk
+Tue Mar 21 21:12:26 2023   Switch3   Switch(config-if)#show interfaces trunk
+Tue Mar 21 21:12:35 2023   Switch3   Switch(config-if)#do show interfaces trunk
+Tue Mar 21 21:12:48 2023   Switch3   Switch(config-if)#interface fa0/2
+Tue Mar 21 21:13:02 2023   Switch3   Switch(config-if)#switchport mode trunk
+Tue Mar 21 21:13:35 2023   Switch3   Switch#do shoow interfaces trunk
+Tue Mar 21 21:13:46 2023   Switch3   Switch#do show interfaces trunk
+Tue Mar 21 21:14:25 2023   Switch3   Switch#exit
+Tue Mar 21 21:14:29 2023   Switch3   Switch>enable
+Tue Mar 21 21:14:39 2023   Switch3   Switch#configure terminal
+Tue Mar 21 21:14:49 2023   Switch3   Switch(config)#do show interfaces trunk
+Tue Mar 21 21:15:03 2023   Switch2   Switch>enable
+Tue Mar 21 21:15:12 2023   Switch2   Switch#configure terminal
+Tue Mar 21 21:16:14 2023   Switch2   Switch(config)#interface fa0/3
+Tue Mar 21 21:16:24 2023   Switch2   Switch(config-if)#switchport mode trunk
+Tue Mar 21 21:16:40 2023   Switch2   Switch(config-if)#interface fa0/2
+Tue Mar 21 21:16:50 2023   Switch2   Switch(config-if)#switchport mode trunk
+Tue Mar 21 21:17:03 2023   Switch2   Switch(config-if)#do show interfaces trunk
+Tue Mar 21 21:17:19 2023   Switch1   Switch>enable
+Tue Mar 21 21:17:26 2023   Switch1   Switch#configure terminal
+Tue Mar 21 21:17:42 2023   Switch1   Switch(config)#do show interfaces terminal
+Tue Mar 21 21:17:50 2023   Switch1   Switch(config)#do show interfaces trunk
+Tue Mar 21 21:18:06 2023   Switch1   Switch(config)#interface fa0/3
+Tue Mar 21 21:18:19 2023   Switch1   Switch(config-if)#switchport mode trunk
+Tue Mar 21 21:18:30 2023   Switch1   Switch(config-if)#interface fa0/2
+Tue Mar 21 21:18:44 2023   Switch1   Switch(config-if)#switchport mode trunk
+Tue Mar 21 21:18:54 2023   Switch1   Switch(config-if)#do show interfaces trunk
+Tue Mar 21 21:20:11 2023   Switch1   Switch(config-if)#interface fa0/1
+Tue Mar 21 21:20:30 2023   Switch1   Switch(config-if)#switchport mode trunk
+Tue Mar 21 21:20:46 2023   Switch1   Switch(config-if)#do show interfaces trunk
+Tue Mar 21 21:21:23 2023   Switch1   Switch(config-if)#interface fa0/3
+Tue Mar 21 21:21:37 2023   Switch1   Switch(config-if)#switchport mode access
+Tue Mar 21 21:21:48 2023   Switch1   Switch(config-if)#do show interfaces trunk
+Tue Mar 21 21:22:05 2023   Switch1   Switch(config-if)#do show interfaces access br
+Tue Mar 21 21:26:59 2023   Switch1   Switch(config-if)#show interfaces access br
+Tue Mar 21 21:27:37 2023   Switch1   Switch(config-if)#do show interfaces vlan br
+Tue Mar 21 21:27:55 2023   Switch1   Switch(config-if)#do show interfaces vlan
+Tue Mar 21 21:33:25 2023   Switch1   Switch(config-if)#interface fa0/3
+Tue Mar 21 21:33:42 2023   Switch1   Switch(config-if)#interface fa0/4
+Tue Mar 21 21:34:43 2023   Switch1   Switch(config-if)#switchport mode access
+Tue Mar 21 21:34:50 2023   Switch1   Switch(config-if)#interface fa0/3
+Tue Mar 21 21:37:20 2023   Switch1   Switch(config-if)#switchport access vlan 2
+Tue Mar 21 21:38:34 2023   Switch1   Switch(config-if)#vlan 2
+Tue Mar 21 21:38:57 2023   Switch1   Switch(config-vlan)#name Admin
+Tue Mar 21 21:39:12 2023   Switch1   Switch(config-vlan)#vlan 6
+Tue Mar 21 21:39:22 2023   Switch1   Switch(config-vlan)#name Sales
+Tue Mar 21 21:39:37 2023   Switch2   Switch>enable
+Tue Mar 21 21:39:46 2023   Switch2   Switch#configure terminal
+Tue Mar 21 21:40:35 2023   Switch2   Switch(config)#vlan 8
+Tue Mar 21 21:40:42 2023   Switch2   Switch(config-vlan)#name Management
+Tue Mar 21 21:40:49 2023   Switch2   Switch(config-vlan)#vlan 9
+Tue Mar 21 21:41:01 2023   Switch2   Switch(config-vlan)#name Managing Director
+Tue Mar 21 21:41:24 2023   Switch2   Switch(config-vlan)#name Managing_Director
+Tue Mar 21 21:42:07 2023   Switch2   Switch(config-vlan)#interface fa0/3
+Tue Mar 21 21:42:35 2023   Switch2   Switch(config-if)#switcport mode access
+Tue Mar 21 21:42:46 2023   Switch2   Switch(config-if)#switchport mode access
+Tue Mar 21 21:43:15 2023   Switch2   Switch(config-if)#switchport access vlan 8
+Tue Mar 21 21:43:25 2023   Switch2   Switch(config-if)#interface fa0/4
+Tue Mar 21 21:43:51 2023   Switch2   Switch(config-if)#switchport mode access
+Tue Mar 21 21:44:06 2023   Switch2   Switch(config-if)#switchport access vlan 9
+Tue Mar 21 21:44:16 2023   Switch2   Switch(config-if)#do show vlan br
+Tue Mar 21 21:44:54 2023   Switch3   Switch>enable
+Tue Mar 21 21:45:16 2023   Switch3   Switch#configure terminal
+Tue Mar 21 21:45:38 2023   Switch3   Switch(config)#interface fa0/3
+Tue Mar 21 21:45:50 2023   Switch3   Switch(config-if)#switchport mode access
+Tue Mar 21 21:46:05 2023   Switch3   Switch(config-if)#switchport access vlan 8
+Tue Mar 21 21:46:11 2023   Switch3   Switch(config-if)#vlan 8
+Tue Mar 21 21:46:36 2023   Switch3   Switch(config-vlan)#vlan 7
+Tue Mar 21 21:46:42 2023   Switch3   Switch(config-vlan)#name IT
+Tue Mar 21 21:47:09 2023   Switch3   Switch(config-vlan)#switchport access vlan 7
+Tue Mar 21 21:47:24 2023   Switch3   Switch(config-vlan)#interface fa0/3
+Tue Mar 21 21:47:32 2023   Switch3   Switch(config-if)#switchport acces vlan 7
+Tue Mar 21 21:47:43 2023   Switch3   Switch(config-if)#do show vlan br
+Tue Mar 21 21:47:58 2023   Switch3   Switch(config-if)#clear vlan 8
+Tue Mar 21 21:49:36 2023   Switch3   Switch(config-if)#no vlan 8
+Tue Mar 21 21:49:42 2023   Switch3   Switch(config)#do show vlan br
+Tue Mar 21 21:50:05 2023   Switch0   Switch>enable
+Tue Mar 21 21:50:11 2023   Switch0   Switch#configure terminal
+Tue Mar 21 21:50:50 2023   Switch0   Switch(config)#interface fa0/3
+Tue Mar 21 21:51:07 2023   Switch0   Switch(config-if)#switchport mode access
+Tue Mar 21 21:51:33 2023   Switch0   Switch(config-if)#vlan 2
+Tue Mar 21 21:51:37 2023   Switch0   Switch(config-vlan)#name Admin
+Tue Mar 21 21:51:43 2023   Switch0   Switch(config-vlan)#vlan 6
+Tue Mar 21 21:51:49 2023   Switch0   Switch(config-vlan)#name Sales
+Tue Mar 21 21:51:57 2023   Switch0   Switch(config-vlan)#interface fa0/3
+Tue Mar 21 21:52:16 2023   Switch0   Switch(config-if)#switchport access vlan 2
+Tue Mar 21 21:52:22 2023   Switch0   Switch(config-if)#interface fa0/4
+Tue Mar 21 21:52:41 2023   Switch0   Switch(config-if)#switchport mode access
+Tue Mar 21 21:52:49 2023   Switch0   Switch(config-if)#switchport access vlan 6
+Tue Mar 21 21:52:56 2023   Switch0   Switch(config-if)#do show trunk
+Tue Mar 21 21:53:06 2023   Switch0   Switch(config-if)#do show interfaces trunk
+Tue Mar 21 21:53:28 2023   Switch0   Switch(config-if)#do show vlan br
+Tue Mar 21 21:53:45 2023   Switch1   Switch>enable 
+Tue Mar 21 21:53:56 2023   Switch1   Switch#configure terminal
+Tue Mar 21 21:54:06 2023   Switch1   Switch(config)#do show interfaces trunk
+Tue Mar 21 21:54:17 2023   Switch1   Switch(config)#do show vlan br
+Tue Mar 21 21:56:11 2023   Switch0   Switch(config-if)#exit
+Tue Mar 21 21:56:21 2023   Switch0   Switch(config)#vtp mode server
+Tue Mar 21 21:56:44 2023   Switch0   Switch(config)#vtp aiub.edu
+Tue Mar 21 21:56:57 2023   Switch0   Switch(config)#vtp domain aiub.edu
+Tue Mar 21 21:57:10 2023   Switch0   Switch(config)#vtp password 2043213
+Tue Mar 21 21:57:25 2023   Switch2   Switch>enable
+Tue Mar 21 21:57:36 2023   Switch2   Switch#configure terminal
+Tue Mar 21 21:57:43 2023   Switch2   Switch(config)#vtp mode server
+Tue Mar 21 21:57:56 2023   Switch2   Switch(config)#vtp domain aiub.edu
+Tue Mar 21 21:58:12 2023   Switch2   Switch(config)#vtp password 20432131
+Tue Mar 21 21:59:34 2023   Switch2   Switch(config)#show vtp domain
+Tue Mar 21 21:59:57 2023   Switch2   Switch(config)#exit
+Tue Mar 21 22:00:05 2023   Switch2   Switch#show vtp domain
+Tue Mar 21 22:00:57 2023   Switch2   Switch#do show vtp domain
+Tue Mar 21 22:01:12 2023   Switch2   Switch#show vtp
+Tue Mar 21 22:01:27 2023   Switch2   Switch#show vtp server
+Tue Mar 21 22:01:35 2023   Switch2   Switch#show vtp domain name
+Tue Mar 21 22:02:55 2023   Switch2   Switch#show vtp status
+Tue Mar 21 22:03:09 2023   Switch3   Switch>enable
+Tue Mar 21 22:03:17 2023   Switch3   Switch#show vtp status
+Tue Mar 21 22:03:37 2023   Switch0   Switch(config)#exit
+Tue Mar 21 22:03:48 2023   Switch0   Switch#show vtp status
+Tue Mar 21 22:04:30 2023   Switch0   Switch#configure terminal
+Tue Mar 21 22:04:49 2023   Switch0   Switch(config)#do show interfaces trunk
+Tue Mar 21 22:05:01 2023   Switch0   Switch(config)#do show vlan br
+Tue Mar 21 22:05:39 2023   Switch3   Switch#configure terminal
+Tue Mar 21 22:05:44 2023   Switch3   Switch(config)#do show vlan br
+Tue Mar 21 22:06:26 2023   Switch0   Switch(config)#no vtp 7
+Tue Mar 21 22:06:42 2023   Switch0   Switch(config)#no vlan 7
+Tue Mar 21 22:07:00 2023   Switch1   Switch>enable 
+Tue Mar 21 22:07:06 2023   Switch1   Switch#configure terminal
+Tue Mar 21 22:07:17 2023   Switch1   Switch(config)#do show vlan br
+Tue Mar 21 22:07:30 2023   Switch0   Switch(config)#vlan 2
+Tue Mar 21 22:07:41 2023   Switch0   Switch(config-vlan)#name Admin
+Tue Mar 21 22:07:44 2023   Switch0   Switch(config-vlan)#vlan 6
+Tue Mar 21 22:07:48 2023   Switch0   Switch(config-vlan)#name Sales
+Tue Mar 21 22:08:01 2023   Switch0   Switch(config-vlan)#interfaces fa0/3
+Tue Mar 21 22:08:09 2023   Switch0   Switch(config-vlan)#interface fa0/3
+Tue Mar 21 22:08:16 2023   Switch0   Switch(config-if)#switchport mode access
+Tue Mar 21 22:08:32 2023   Switch0   Switch(config-if)#switchport access vlan 2
+Tue Mar 21 22:08:40 2023   Switch0   Switch(config-if)#interface fa 0/4
+Tue Mar 21 22:09:20 2023   Switch0   Switch(config-if)#switchport mode access
+Tue Mar 21 22:09:27 2023   Switch0   Switch(config-if)#switchport aceess vlan 6
+Tue Mar 21 22:09:47 2023   Switch0   Switch(config-if)#interface fa0/4
+Tue Mar 21 22:09:54 2023   Switch0   Switch(config-if)#switchport mode access
+Tue Mar 21 22:10:02 2023   Switch0   Switch(config-if)#switchport access vlan 6
+Tue Mar 21 22:10:16 2023   Switch0   Switch(config-if)#do show vlan br
+Thu Mar 23 22:50:00 2023   Switch0   Switch>EN
+Thu Mar 23 22:50:08 2023   Switch0   Switch#config t
+Thu Mar 23 22:50:21 2023   Switch0   Switch(config)#vlan 2
+Thu Mar 23 22:51:01 2023   Switch0   Switch(config-vlan)#name Admin1
+Thu Mar 23 22:51:07 2023   Switch0   Switch(config-vlan)#exit
+Thu Mar 23 22:51:22 2023   Switch0   Switch(config)#vlan 3
+Thu Mar 23 22:51:26 2023   Switch0   Switch(config-vlan)#name Sales1
+Thu Mar 23 22:51:30 2023   Switch0   Switch(config-vlan)#exit
+Thu Mar 23 22:51:32 2023   Switch0   Switch(config)#exit
+Thu Mar 23 22:51:44 2023   Switch0   Switch#show vlan
+Thu Mar 23 22:52:10 2023   Switch0   Switch#config t
+Thu Mar 23 22:52:19 2023   Switch0   Switch(config)#int f0/1
+Thu Mar 23 22:52:29 2023   Switch0   Switch(config-if)#switchport access vlan 2
+Thu Mar 23 22:52:31 2023   Switch0   Switch(config-if)#exit
+Thu Mar 23 22:52:35 2023   Switch0   Switch(config)#int f0/2
+Thu Mar 23 22:52:52 2023   Switch0   Switch(config-if)#switchport access vlan 3
+Thu Mar 23 22:53:00 2023   Switch0   Switch(config-if)#exit
+Thu Mar 23 22:53:01 2023   Switch0   Switch(config)#exit
+Thu Mar 23 22:53:09 2023   Switch0   Switch#show vlan
+Thu Mar 23 22:54:05 2023   Switch1   Switch>en
+Thu Mar 23 22:54:09 2023   Switch1   Switch#config t
+Thu Mar 23 22:54:17 2023   Switch1   Switch(config)#vlan 2
+Thu Mar 23 22:54:22 2023   Switch1   Switch(config-vlan)#name Admin2
+Thu Mar 23 22:54:25 2023   Switch1   Switch(config-vlan)#exit
+Thu Mar 23 22:54:30 2023   Switch1   Switch(config)#vlan 3
+Thu Mar 23 22:54:36 2023   Switch1   Switch(config-vlan)#name Sales2
+Thu Mar 23 22:54:38 2023   Switch1   Switch(config-vlan)#exit
+Thu Mar 23 22:54:55 2023   Switch1   Switch(config)#int f0/1
+Thu Mar 23 22:55:04 2023   Switch1   Switch(config-if)#switchport access vlan 2
+Thu Mar 23 22:55:06 2023   Switch1   Switch(config-if)#exit
+Thu Mar 23 22:55:09 2023   Switch1   Switch(config)#int f0/2
+Thu Mar 23 22:55:12 2023   Switch1   Switch(config-if)#switchport access vlan 3
+Thu Mar 23 22:55:15 2023   Switch1   Switch(config-if)#exit
+Thu Mar 23 22:55:22 2023   Switch1   Switch(config)#exit
+Thu Mar 23 22:55:31 2023   Switch1   Switch#show vlan
+Thu Mar 23 22:56:32 2023   Switch3   Switch>en
+Thu Mar 23 22:56:36 2023   Switch3   Switch#config t
+Thu Mar 23 22:56:42 2023   Switch3   Switch(config)#vlan 2
+Thu Mar 23 22:56:45 2023   Switch3   Switch(config-vlan)#name IT
+Thu Mar 23 22:56:59 2023   Switch3   Switch(config-vlan)#exit
+Thu Mar 23 22:57:21 2023   Switch3   Switch(config)#show vlan
+Thu Mar 23 22:57:38 2023   Switch3   Switch(config)#exit
+Thu Mar 23 22:57:42 2023   Switch3   Switch#show vlan
+Thu Mar 23 22:58:14 2023   Switch2   Switch>en
+Thu Mar 23 22:58:16 2023   Switch2   Switch#config t
+Thu Mar 23 22:58:34 2023   Switch2   Switch(config)#vlan 2
+Thu Mar 23 22:58:40 2023   Switch2   Switch(config-vlan)#name Management
+Thu Mar 23 22:58:43 2023   Switch2   Switch(config-vlan)#name Management1
+Thu Mar 23 22:58:45 2023   Switch2   Switch(config-vlan)#exit
+Thu Mar 23 22:59:04 2023   Switch3   Switch#en
+Thu Mar 23 22:59:06 2023   Switch3   Switch#config t
+Thu Mar 23 22:59:10 2023   Switch3   Switch(config)#vlan 2
+Thu Mar 23 22:59:15 2023   Switch3   Switch(config-vlan)#name IT1
+Thu Mar 23 22:59:17 2023   Switch3   Switch(config-vlan)#exit
+Thu Mar 23 22:59:41 2023   Switch3   Switch(config)#int f0/1
+Thu Mar 23 22:59:53 2023   Switch3   Switch(config-if)#switchport access vlan 2
+Thu Mar 23 22:59:54 2023   Switch3   Switch(config-if)#exit
+Thu Mar 23 22:59:59 2023   Switch3   Switch(config)#exit
+Thu Mar 23 23:00:04 2023   Switch3   Switch#show vlan
+Thu Mar 23 23:00:20 2023   Switch2   Switch(config)#vlan 3
+Thu Mar 23 23:00:26 2023   Switch2   Switch(config-vlan)#name managingdirc
+Thu Mar 23 23:00:31 2023   Switch2   Switch(config-vlan)#exit
+Thu Mar 23 23:00:44 2023   Switch2   Switch(config)#int f0/1
+Thu Mar 23 23:00:59 2023   Switch2   Switch(config-if)#switchport access vlan 2
+Thu Mar 23 23:01:02 2023   Switch2   Switch(config-if)#exit
+Thu Mar 23 23:01:08 2023   Switch2   Switch(config)#int f0/2
+Thu Mar 23 23:01:11 2023   Switch2   Switch(config-if)#switchport access vlan 3
+Thu Mar 23 23:01:13 2023   Switch2   Switch(config-if)#exit
+Thu Mar 23 23:01:14 2023   Switch2   Switch(config)#exit
+Thu Mar 23 23:01:20 2023   Switch2   Switch#show vlan
+Thu Mar 23 23:02:20 2023   Switch0   Switch#switchport mode trunk
+Thu Mar 23 23:02:29 2023   Switch0   Switch#en
+Thu Mar 23 23:02:32 2023   Switch0   Switch#config t
+Thu Mar 23 23:02:40 2023   Switch0   Switch(config)#switchport mode trunk
+Thu Mar 23 23:03:05 2023   Switch0   Switch(config)#int f0/4
+Thu Mar 23 23:03:07 2023   Switch0   Switch(config-if)#switchport mode trunk
+Thu Mar 23 23:03:25 2023   Switch3   Switch#en
+Thu Mar 23 23:03:27 2023   Switch3   Switch#config t
+Thu Mar 23 23:03:40 2023   Switch3   Switch(config)#int f0/4
+Thu Mar 23 23:03:55 2023   Switch3   Switch(config-if)#switchport mode trunk
+Thu Mar 23 23:04:09 2023   Switch3   Switch(config-if)#exit
+Thu Mar 23 23:04:12 2023   Switch3   Switch(config)#exit
+Thu Mar 23 23:04:25 2023   Switch2   Switch#en
+Thu Mar 23 23:04:27 2023   Switch2   Switch#config t
+Thu Mar 23 23:04:32 2023   Switch2   Switch(config)#int f0/4
+Thu Mar 23 23:04:39 2023   Switch2   Switch(config-if)#switchport mode trunk
+Thu Mar 23 23:04:41 2023   Switch2   Switch(config-if)#exit
+Thu Mar 23 23:04:42 2023   Switch2   Switch(config)#exit
+Thu Mar 23 23:04:49 2023   Switch1   Switch#en
+Thu Mar 23 23:04:53 2023   Switch1   Switch#config t
+Thu Mar 23 23:05:01 2023   Switch1   Switch(config)#switchport mode trunk
+Thu Mar 23 23:05:09 2023   Switch1   Switch(config)#int f0/4
+Thu Mar 23 23:05:10 2023   Switch1   Switch(config-if)#switchport mode trunk
+Thu Mar 23 23:05:14 2023   Switch1   Switch(config-if)#exit
+Thu Mar 23 23:05:15 2023   Switch1   Switch(config)#exit
